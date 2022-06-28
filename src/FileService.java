@@ -10,22 +10,22 @@ public class FileService {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Path PATH = Paths.get("./test.json");
 
-    public static Data[] readFile(){
+    public static Data[] readFile() {
         String json = "";
-        try{
+        try {
             json = Files.readString(PATH);
-        } catch(IOException e){
+        } catch (IOException e) {
             System.out.println("\nFile not found " + e.getMessage());
         }
         return GSON.fromJson(json, Data[].class);
     }
 
-    public static void writeFile(Data[] Data){
+    public static void writeFile(Data[] Data) {
         String json = GSON.toJson(Data);
-        try{
+        try {
             byte[] arr = json.getBytes();
             Files.write(PATH, arr);
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("\nFile not found " + e.getMessage());
         }
     }

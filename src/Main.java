@@ -5,7 +5,7 @@ public class Main {
 
     public static void run() {
         DB dataBase = new DB();
-        while(true) {
+        while (true) {
             dataBase.action();
         }
     }

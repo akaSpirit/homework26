@@ -11,7 +11,7 @@ public interface DataBase {
 
     void readRecordByKey();
 
-    Data[] readRecords(String str1, String str2); //Метод может принимать или начальный индекс и количество записей, или начальный и конечный индекс. На выходе массив или коллекция записей.
+    Data[] readRecords(String str1, String str2);
 
     void countRecords();
 

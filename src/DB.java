@@ -274,13 +274,13 @@ public class DB implements DataBase {
                         System.out.println(e.getMessage());
                     }
                 }
-                while(true){
-                    try{
+                while (true) {
+                    try {
                         System.out.print("Enter end index: ");
                         str2 = new Scanner(System.in).nextLine();
                         checkIndex(str2);
                         break;
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                 }

@@ -1,23 +1,23 @@
 public interface DataBase {
-    void openConnection();
+    void openConnection() throws Exception;
 
-    void closeConnection();
+    void closeConnection() throws Exception;
 
-    boolean checkConnection();
+    void checkConnection() throws Exception;
 
-    void readStringByIndex();
+    void readRecordByIndex();
 
-    boolean isStringByKey();
+    void isRecordByKey(String key) throws Exception;
 
-    void readStringByKey();
+    void readRecordByKey();
 
-    void readStrings(int num1, int num2); //Метод может принимать или начальный индекс и количество записей, или начальный и конечный индекс. На выходе массив или коллекция записей.
+    Data[] readRecords(String str1, String str2); //Метод может принимать или начальный индекс и количество записей, или начальный и конечный индекс. На выходе массив или коллекция записей.
 
     void countRecords();
 
     void addRecord();
 
-    void writeStringByIndex();
+    void updateValueByIndex();
 
-    void writeStringByKey();
+    void updateValueByKey();
 }

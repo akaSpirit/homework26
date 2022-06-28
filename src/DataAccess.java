@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//Task1
 public class DataAccess {
     Data[] data = {
             new Data("K1", "AAA"),

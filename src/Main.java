@@ -4,12 +4,9 @@ public class Main {
     }
 
     public static void run() {
-        DataAccess da = new DataAccess();
-        while (true) {
-            da.readKey();
-            da.writeKey();;
-            da.readValue();
-            da.writeValue();
+        DB dataBase = new DB();
+        while(true) {
+            dataBase.action();
         }
     }
 }

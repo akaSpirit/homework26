@@ -225,7 +225,7 @@ public class DB implements DataBase {
         int action;
         while (true) {
             printMenu();
-            System.out.print("Enter number (1..10): ");
+            System.out.print("Enter number of action (1..10): ");
             String input = new Scanner(System.in).nextLine();
             try {
                 checkInput(input);
@@ -292,12 +292,15 @@ public class DB implements DataBase {
                 break;
             case 7:
                 addRecord();
+                FileService.writeFile(data);
                 break;
             case 8:
                 updateValueByIndex();
+                FileService.writeFile(data);
                 break;
             case 9:
                 updateValueByKey();
+                FileService.writeFile(data);
                 break;
             case 10:
                 printRecords(0, data.length);

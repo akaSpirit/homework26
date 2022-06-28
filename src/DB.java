@@ -91,13 +91,8 @@ public class DB implements DataBase {
     @Override
     public Data[] readRecords(String str1, String str2) {
         try {
-            checkConnection();
-            try {
-                checkIndexes(str1, str2);
-                return Arrays.copyOfRange(data, Integer.parseInt(str1), Integer.parseInt(str1));
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+            checkIndexes(str1, str2);
+            return Arrays.copyOfRange(data, Integer.parseInt(str1), Integer.parseInt(str1));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -262,30 +257,35 @@ public class DB implements DataBase {
                 readRecordByKey();
                 break;
             case 5:
-                String str1;
-                String str2;
-                while (true) {
-                    try {
-                        System.out.print("Enter start index: ");
-                        str1 = new Scanner(System.in).nextLine();
-                        checkIndex(str1);
-                        break;
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                try {
+                    checkConnection();
+                    String str1;
+                    String str2;
+                    while (true) {
+                        try {
+                            System.out.print("Enter start index: ");
+                            str1 = new Scanner(System.in).nextLine();
+                            checkIndex(str1);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
-                }
-                while (true) {
-                    try {
-                        System.out.print("Enter end index: ");
-                        str2 = new Scanner(System.in).nextLine();
-                        checkIndex(str2);
-                        break;
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                    while (true) {
+                        try {
+                            System.out.print("Enter end index: ");
+                            str2 = new Scanner(System.in).nextLine();
+                            checkIndex(str2);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
+                    readRecords(str1, str2);
+                    printRecords(Integer.parseInt(str1), Integer.parseInt(str2) + 1);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
-                readRecords(str1, str2);
-                printRecords(Integer.parseInt(str1), Integer.parseInt(str2) + 1);
                 break;
             case 6:
                 countRecords();
